@@ -7,18 +7,18 @@ guess = 0
 print("Welcome to the \"Number Guessing Game\"!")
 print("The number is between 1 and 100.")
 
-while guess != number:
-    guess = input("Enter your guess: ")
 
-    if not guess.isdigit():
-        print("Please enter a number.")
+guess = input("Enter your guess: ")
 
-    guess = int(guess)
-    attempts += 1
+if not guess.isdigit():
+    print("Please enter a number.")
 
-    if guess < number:
-        print("Too low!")
-    elif guess > number:
-        print("Too high!")
-    else:
-        print("Congratulations! You guessed it in " + str(attempts) + " tries.")
+guess = int(guess)
+
+
+if guess < number:
+    print("Too low! You lose.")
+elif guess > number:
+    print("Too high! You lose.")
+else:
+    print("Congratulations! You guessed it in " + str(attempts) + " tries.")
