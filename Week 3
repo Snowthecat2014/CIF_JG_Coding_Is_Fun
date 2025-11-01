@@ -30,3 +30,4 @@ while guess != number and still_playing.lower() == "yes":
             break
     else:
         print("You guessed the number!")
+        break
