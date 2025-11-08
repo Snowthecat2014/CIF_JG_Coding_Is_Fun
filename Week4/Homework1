@@ -1,0 +1,14 @@
+# I just made it up.
+
+weather = [
+    ["Monday", 18, 1],
+    ["Tuesday", 11, 0],
+    ["Wednesday", 9, -1],
+    ["Thursday", 17, 3],
+    ["Friday", 15, 0],
+    ["Saturday", 12, -2],
+    ["Sunday", 8, -2]
+]
+print("The weather forecast for Richmond Hill, Canada, for the next seven days is:\t")
+for day in weather:
+    print("\n" + day[0] + ")\n   High)   ", str(day[1]) + "°C  | Low)   ", str(day[2]) + "°C")
