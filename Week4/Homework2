@@ -1,0 +1,55 @@
+import random
+question = [
+    "What is 64 + 82?\t",
+    "What is 236 - 92?\t",
+    "What is 48 ÷ 3?\t",
+    "What is 32 x 53?\t",
+    "What is 273 + 782?\t",
+    "What is 5962 - 579?\t",
+    "What is 75 ÷ 2?\t",
+    "What is 105 x 8?\t",
+    "What is 567 + 253?\t",
+    "What is 5 in the power of 5?\t",
+    "What is 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1?\t",
+]
+answer = [
+    "146",
+    "144",
+    "16",
+    "1696",
+    "1055",
+    "5383",
+    "37.5",
+    "840",
+    "820",
+    "3125",
+    "12"
+]
+lives = 3
+asked_questions = []
+def intro():
+    print("Welcome to a TBAG game!\n\nInstructions:\t\nAll of the answer are numbers.\nYou only have 3 lives.\nHave fun!\n\nLet's start to play!")
+
+print(intro())
+for i in range(len(question)):
+    again = 1
+    while again == 1:
+        random_number = random.randint(0, len(question)-1)
+        if random_number in asked_questions:
+            again = 1
+        else:
+            again = 0
+        asked_questions.append(random_number)
+    answer_ = input(question[random_number])
+    if answer_ == answer[random_number]:
+        print("Correct!")
+        print("You have " + str(lives) + " lives left.")
+    else:
+        lives = lives - 1
+        print("Wrong.")
+        print("The correct answer is " + answer[random_number] + ".")
+        print("You have " + str(lives) + " lives left.")
+
+    if lives == 0:
+        print("You ran out of lives. You lose.")
+        break
