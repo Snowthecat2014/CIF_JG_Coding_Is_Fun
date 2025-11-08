@@ -1,0 +1,33 @@
+import random
+
+lower = int(input("Enter the lowest number in the range:\t"))
+upper = int(input("Enter the highest number in the range:\t"))
+
+number = random.randint(lower, upper)
+guess = ""
+still_playing = "yes"
+
+while guess != number and still_playing.lower() == "yes":
+    guess = input("Enter your guess:\t")
+
+    if guess.lower() == 'quit':
+        print("You gave up. The number was " + number)
+        guess = number
+        break
+    
+    if int(guess) < number:
+        print("Too low!")
+        still_playing = input("Do you still want to play?(yes or no)")
+        if still_playing.lower() == "no":
+            print("You gave up, the number was " + str(number))
+            break
+        
+    elif int(guess) > number:
+        print("Too high!")
+        still_playing = input("Do you still want to play?(yes or no)")
+        if still_playing.lower() == "no":
+            print("You gave up, the number was " + str(number))
+            break
+    else:
+        print("You guessed the number!")
+        break
