@@ -1,1 +1,20 @@
+import turtle
 
+sides = int(input("Enter the number of sides of the polygon:\t"))
+length = float(input("Enter the length of each side:\t"))
+
+screen = turtle.Screen()
+turtle_ = turtle.Turtle()
+screen.setup(650, 650)
+turtle_.speed(1)
+
+angle = 360 / sides
+
+turtle_.penup()
+turtle_.goto(-length / 2, 230)
+turtle_.pendown()
+for i in range(sides):
+    turtle_.forward(length)
+    turtle_.right(angle)
+
+turtle.done()
