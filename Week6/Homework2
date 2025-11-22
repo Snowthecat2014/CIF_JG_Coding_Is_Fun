@@ -1,0 +1,100 @@
+import turtle
+import random
+
+# Setup
+screen = turtle.Screen()
+screen.setup(900, 650)
+screen.bgcolor("#050511")
+
+rocket = turtle.Turtle()
+rocket.speed(0)
+rocket.hideturtle()
+
+star = turtle.Turtle()
+star.speed(0)
+star.hideturtle()
+
+# Draw a star
+def draw_star(x, y, size):
+    star.penup()
+    star.goto(x, y)
+    star.pendown()
+    star.color("#FFF895")
+    star.pensize(1)
+    for i in range(5):
+        star.forward(size)
+        star.right(144)
+
+for i in range(50):
+    draw_star(random.randint(-450, 450), random.randint(-245, 325), random.randint(5, 15))
+
+# Firework box
+def draw_firework_box():
+    rocket.penup()
+    rocket.goto(50, -310)
+    rocket.pendown()
+    rocket.color("red")
+    rocket.begin_fill()
+    for i in range(2):
+        rocket.forward(120)
+        rocket.left(90)
+        rocket.forward(80)
+        rocket.left(90)
+    rocket.end_fill()
+    rocket.penup()
+
+draw_firework_box()
+
+# Rocket trail
+def draw_rocket_trail():
+    rocket.penup()
+    rocket.goto(110, -230)
+    rocket.pendown()
+    rocket.pensize(3)
+    rocket.color("white")
+    rocket.left(90)
+    for i in range(25):
+        rocket.forward(15)
+        rocket.left(1.5)
+
+draw_rocket_trail()
+
+# Explosion
+def draw_firework():
+    rocket.penup()
+    rocket.pendown()
+
+    colours1 = ["#FD0000", "#FF6900", "#FFC000", "#FFF000"]
+    colours2 = ["#FD1500", "#FF8400", "#FFD000", "#FFF450"]
+    colours3 = ["#FD3000", "#FF9900", "#FFE000", "#FFF900"]
+
+    for i in range(60):
+        rocket.pensize(2.5)
+        colour = colours1[i % len(colours1)]
+        rocket.color(colour)
+        rocket.forward(200)
+        rocket.backward(200)
+        rocket.right(6)
+    
+    for i in range(36):
+        rocket.pensize(3.5)
+        colour = colours2[i % len(colours2)]
+        rocket.color(colour)
+        rocket.forward(150)
+        rocket.backward(150)
+        rocket.right(10)
+    
+    for i in range(15):
+            rocket.pensize(4)
+            colour = colours3[i % len(colours3)]
+            rocket.color(colour)
+            rocket.forward(100)
+            rocket.backward(100)
+            rocket.right(24)
+
+    rocket.penup()
+    rocket.end_fill()
+
+draw_firework()
+
+turtle.done()
