@@ -28,6 +28,26 @@ def draw_star(x, y, size):
 for i in range(50):
     draw_star(random.randint(-450, 450), random.randint(-245, 325), random.randint(5, 15))
 
+# Landscape
+def draw_landscape():
+    rocket.penup()
+    rocket.goto(-450, -250)
+    rocket.pendown()
+    rocket.color("#0F6100")
+    rocket.begin_fill()
+    rocket.forward(900)
+    rocket.right(90)
+    rocket.forward(200)
+    rocket.right(90)
+    rocket.forward(900)
+    rocket.right(90)
+    rocket.forward(200)
+    rocket.right(90)
+    rocket.end_fill()
+    rocket.penup()
+
+draw_landscape()
+
 # Firework box
 def draw_firework_box():
     rocket.penup()
